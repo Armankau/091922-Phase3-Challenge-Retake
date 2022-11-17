@@ -14,6 +14,7 @@ class Actor < ActiveRecord::Base
     end
 
     def self.most_successful
-        Role.all.max_by {|role| role.salary}.actor
+        self.all.max_by {|actor| actor.roles.sum(:salary)}
+        # Role.all.max_by {|role| role.salary}.actor
     end
 end
