@@ -8,7 +8,7 @@ class Movie < ActiveRecord::Base
     end
 
     def all_credits
-        self.roles.map {|role| "#{role.character_name}: Played by #{role.actor}"}
+        self.roles.map {|role| "#{role.character_name}: Played by #{role.actor.name}"}
         # self.roles.map {|role| role.credit}
         #good
     end
