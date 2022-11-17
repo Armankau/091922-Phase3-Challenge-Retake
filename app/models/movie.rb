@@ -14,7 +14,6 @@ class Movie < ActiveRecord::Base
     end
 
     def fire_actor(actor)
-        fired = self.roles.filter {|role| role.actor == actor}
-        fired.destroy_all
+        self.roles.where(actor: actor).destroy_all
     end
 end
